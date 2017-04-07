@@ -346,7 +346,11 @@
       - RHEL-07-010430
 
 - name: "MEDIUM | RHEL-07-010460 | PATCH | The operating system must not allow users to override SSH environment variables."
-  command: "true"
+  lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: '^#?PermitUserEnvironment'
+      line: PermitUserEnvironment no
+      validate: sshd -t -f %s
   tags:
       - cat2
       - medium
