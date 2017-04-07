@@ -351,6 +351,7 @@
       regexp: '^#?PermitUserEnvironment'
       line: PermitUserEnvironment no
       validate: sshd -t -f %s
+  notify: restart sshd      
   tags:
       - cat2
       - medium
