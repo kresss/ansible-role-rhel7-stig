@@ -338,7 +338,10 @@
       - RHEL-07-010350
 
 - name: "MEDIUM | RHEL-07-010430 | PATCH | The delay between logon prompts following a failed console logon attempt must be at least four seconds."
-  command: "true"
+  lineinfile:
+      dest: /etc/login.defs
+      regexp: '^#?FAIL_DELAY'
+      line: FAIL_DELAY 4
   tags:
       - cat2
       - medium
