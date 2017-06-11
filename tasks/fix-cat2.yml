@@ -1568,12 +1568,20 @@
       - firewalld
 
 - name: "MEDIUM | RHEL-07-040520 | PATCH | The operating system must enable an application firewall, if available."
-  command: "true"
+  yum:
+      name:
+          - firewalld
+      state: latest
+  service:
+      name: firewalld
+      state: started
+      enabled: yes
   tags:
       - cat2
       - medium
       - patch
       - RHEL-07-040520
+      - firewalld
 
 - name: "MEDIUM | RHEL-07-040610 | PATCH | The system must not forward Internet Protocol version 4 (IPv4) source-routed packets."
   sysctl:
