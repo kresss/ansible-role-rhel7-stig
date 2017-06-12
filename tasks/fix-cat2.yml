@@ -1568,10 +1568,6 @@
       - firewalld
 
 - name: "MEDIUM | RHEL-07-040520 | PATCH | The operating system must enable an application firewall, if available."
-  yum:
-      name:
-          - firewalld
-      state: latest
   service:
       name: firewalld
       state: started
